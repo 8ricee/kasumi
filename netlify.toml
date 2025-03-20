@@ -1,7 +1,7 @@
 [build]
-  base = "/Users/8ricee/Code/Kasumi"
+  base = "."
   command = "npm run build"
-  publish = ".next"
+  publish = "out"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
