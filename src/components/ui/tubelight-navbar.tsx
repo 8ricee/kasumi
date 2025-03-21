@@ -39,7 +39,7 @@ export function NavBar({ items, className }: NavBarProps) {
         className,
       )}
     >
-      <div className="flex p-4 md:px-10 xl:px-44 justify-between items-center lg:bg-background/5 lg:backdrop-blur-lg backdrop-blur-none bg-none">
+      <div className="flex p-4 md:px-10 lg:p-0 lg:px-4 xl:px-44 justify-between items-center lg:bg-background/5 lg:backdrop-blur-lg backdrop-blur-none bg-none">
         <div className="flex items-center gap-2 ">
           <Image
             src={"/favicon/dark.svg"}
@@ -49,7 +49,7 @@ export function NavBar({ items, className }: NavBarProps) {
             className="hidden sm:inline"
           />
           <Image
-            className="hidden xl:inline"
+            className="hidden lg:inline"
             src={"/favicon/logo.svg"}
             alt="Logo"
             width={isMobile ? 25 : 200}

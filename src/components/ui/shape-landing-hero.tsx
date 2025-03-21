@@ -5,8 +5,17 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
-import { MoveRight, PhoneCall } from "lucide-react";
+import { Facebook, Github, Inbox, Instagram, Mail, MoveRight, PhoneCall } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
 
 function ElegantShape({
     className,
@@ -63,10 +72,6 @@ function ElegantShape({
                         "absolute inset-0 rounded-full",
                         "bg-gradient-to-r to-transparent",
                         gradient,
-                        // "backdrop-blur-[2px] border-2 border-red-50/[0.15] dark:border-white/[0.15]",
-                        // "shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]",
-                        // "after:absolute after:inset-0 after:rounded-full",
-                        // "after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent_70%)]"
                         "backdrop-blur-[2px] border-2 border-red-50 dark:border-white/[0.15]",
                         "shadow-[0_8px_32px_0_rgba(0,0,0,0.1)] dark:shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]",
                         "after:absolute after:inset-0 after:rounded-full",
@@ -84,30 +89,30 @@ function HeroGeometric({
     title = "Kasumi Language Center",
     description = "With modern teaching methods and a focus on practical communication skills",
     dynamicTitles = ["amazing", "new", "wonderful", "beautiful", "smart"]
-  }: {
+}: {
     icon?: string;
     badge?: string;
     title?: string;
     description?: string;
     dynamicTitles?: string[];
-  }) {
+}) {
     const fadeUpVariants = {
-      hidden: { opacity: 0, y: 30 },
-      visible: (i: number) => ({
-        opacity: 1,
-        y: 0,
-        transition: { duration: 1, delay: 0.5 + i * 0.2, ease: [0.25, 0.4, 0.25, 1] },
-      }),
+        hidden: { opacity: 0, y: 30 },
+        visible: (i: number) => ({
+            opacity: 1,
+            y: 0,
+            transition: { duration: 1, delay: 0.5 + i * 0.2, ease: [0.25, 0.4, 0.25, 1] },
+        }),
     };
-  
+
     const [titleNumber, setTitleNumber] = useState(0);
     const titles = useMemo(() => dynamicTitles, [dynamicTitles]);
-  
+
     useEffect(() => {
-      const interval = setInterval(() => {
-        setTitleNumber((prev) => (prev + 1) % titles.length);
-      }, 2000);
-      return () => clearInterval(interval);
+        const interval = setInterval(() => {
+            setTitleNumber((prev) => (prev + 1) % titles.length);
+        }, 2000);
+        return () => clearInterval(interval);
     }, [titles]);
 
     return (
@@ -159,7 +164,7 @@ function HeroGeometric({
 
             <div className="relative z-10 container mx-auto px-4 md:px-6">
                 <div className="max-w-3xl mx-auto text-center">
-                    <motion.div
+                    {/* <motion.div
                         custom={0}
                         variants={fadeUpVariants}
                         initial="hidden"
@@ -170,7 +175,67 @@ function HeroGeometric({
                         <Link href="/home" className="text-sm text-black/60 dark:text-white/60 tracking-wide">
                             {badge}
                         </Link>
-                    </motion.div>
+                    </motion.div> */}
+                    <Dialog>
+                        <DialogTrigger asChild>
+                            <motion.div
+                                custom={0}
+                                variants={fadeUpVariants}
+                                initial="hidden"
+                                animate="visible"
+                                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/[0.03] dark:bg-white/[0.03] border border-black/[0.08] dark:border-white/[0.08] mb-8 md:mb-12"
+                            >
+                                <Image src={icon} alt="Kasumi Logo" width={24} height={24} className="rounded-full" />
+                                <span className="text-sm text-black/60 dark:text-white/60 tracking-wide cursor-pointer">
+                                    {badge}
+                                </span>
+                            </motion.div>
+                        </DialogTrigger>
+                        <DialogContent>
+                            <div className="mb-2 flex flex-col items-center gap-2">
+                                <div
+                                    className="flex size-11 shrink-0 items-center justify-center rounded-full border border-border"
+                                    aria-hidden="true"
+                                >
+                                    <Image src={icon} alt="Kasumi Logo" width={24} height={24} className="rounded-full" />
+                                </div>
+                                <DialogHeader>
+                                    <DialogTitle className="sm:text-center">Never miss an update</DialogTitle>
+                                    <DialogDescription className="sm:text-center">
+                                        Subscribe to receive news and special offers.
+                                    </DialogDescription>
+                                </DialogHeader>
+                            </div>
+
+                            <form className="space-y-5">
+                                <div className="space-y-2">
+                                    <div className="relative">
+                                        <Input
+                                            id="dialog-subscribe"
+                                            className="peer ps-9"
+                                            placeholder="hi@yourcompany.com"
+                                            type="email"
+                                            aria-label="Email"
+                                        />
+                                        <div className="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-muted-foreground/80 peer-disabled:opacity-50">
+                                            <Mail size={16} strokeWidth={2} aria-hidden="true" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <Button type="button" className="w-full">
+                                    Subscribe
+                                </Button>
+                            </form>
+
+                            <p className="text-center text-xs text-muted-foreground">
+                                By subscribing you agree to our{" "}
+                                <a className="underline hover:no-underline" href="#">
+                                    Privacy Policy
+                                </a>
+                                .
+                            </p>
+                        </DialogContent>
+                    </Dialog>
 
                     <motion.div
                         custom={1}
@@ -178,20 +243,7 @@ function HeroGeometric({
                         initial="hidden"
                         animate="visible"
                     >
-                        {/* <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tight">
-                            <span className="bg-clip-text text-transparent bg-gradient-to-b from-slate-200 to-slate-400 dark:from-white dark:to-white/80">
-                                {title1}
-                            </span>
-                            <br />
-                            <span
-                                className={cn(
-                                    "bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-slate-200 to-rose-500 dark:from-indigo-300 dark:via-white/90 dark:to-rose-300"
-                                )}
-                            >
-                                {title2}
-                            </span>
-                        </h1> */}
-                        <div className="flex gap-4 py-10 lg:py-20 items-center justify-center flex-col">
+                        <div className="flex gap-4 py-5 lg:py-10 items-center justify-center flex-col">
                             <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-center font-regular">
                                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-slate-200 to-rose-500 dark:from-indigo-300 dark:via-white/90 dark:to-rose-300">{title}</span>
                                 <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
@@ -224,9 +276,38 @@ function HeroGeometric({
                                 {description}
                             </p>
                         </div>
-                        <div className="flex flex-row gap-3 items-center justify-center">
-                            <Button size="lg" className="gap-4" variant="outline">
-                                Jump on a call <PhoneCall className="w-4 h-4" />
+                        <div className="flex flex-row gap-6 pb-5 items-center justify-center">
+                            <Button size="icon" variant="outline" className="rounded-full">
+                                <Link href="https://www.facebook.com/KasumiCenter/" target="_blank" rel="noopener noreferrer" title="Facebook">
+                                    <Facebook className="w-4 h-4" />
+                                </Link>
+                            </Button>
+                            <Button size="icon" variant="outline" className="rounded-full">
+                                <Link href="https://www.instagram.com/bluw913/" target="_blank" rel="noopener noreferrer" title="Instagram">
+                                    <Instagram className="w-4 h-4" />
+                                </Link>
+                            </Button>
+                            <Button size="icon" variant="outline" className="rounded-full">
+                                <Link href="#" target="_blank" rel="noopener noreferrer">
+                                    <Github className="w-4 h-4" />
+                                </Link>
+                            </Button>
+                            <Button size="icon" variant="outline" className="rounded-full">
+                                <Link href="#" target="_blank" rel="noopener noreferrer">
+                                    <Inbox className="w-4 h-4" />
+                                </Link>
+                            </Button>
+                            <Button size="icon" variant="outline" className="rounded-full">
+                                <Link href="#" target="_blank" rel="noopener noreferrer">
+                                    <Mail className="w-4 h-4" />
+                                </Link>
+                            </Button>
+                        </div>
+                        <div className="md:flex md:flex-row grid grid-cols-1 gap-4 items-center justify-center ">
+                            <Button size="lg" variant="outline">
+                                <a href="tel:000000" className="flex items-center justify-center gap-4 w-full">
+                                    Jump on a call <PhoneCall className="w-4 h-4" />
+                                </a>
                             </Button>
                             <Button size="lg">
                                 <Link href="/home" className="flex items-center gap-4">
@@ -235,17 +316,6 @@ function HeroGeometric({
                             </Button>
                         </div>
                     </motion.div>
-
-                    {/* <motion.div
-                        custom={2}
-                        variants={fadeUpVariants}
-                        initial="hidden"
-                        animate="visible"
-                    >
-                        <p className="text-base sm:text-lg md:text-xl text-black/40 dark:text-white/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
-                            {description}
-                        </p>
-                    </motion.div> */}
                 </div>
             </div>
 
