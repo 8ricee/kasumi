@@ -164,18 +164,6 @@ function HeroGeometric({
 
             <div className="relative z-10 container mx-auto px-4 md:px-6">
                 <div className="max-w-3xl mx-auto text-center">
-                    {/* <motion.div
-                        custom={0}
-                        variants={fadeUpVariants}
-                        initial="hidden"
-                        animate="visible"
-                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/[0.03] dark:bg-white/[0.03] border border-black/[0.08] dark:border-white/[0.08] mb-8 md:mb-12"
-                    >
-                        <Image src={icon} alt="Kasumi Logo" width={24} height={24} className="rounded-full" />
-                        <Link href="/home" className="text-sm text-black/60 dark:text-white/60 tracking-wide">
-                            {badge}
-                        </Link>
-                    </motion.div> */}
                     <Dialog>
                         <DialogTrigger asChild>
                             <motion.div
@@ -311,7 +299,7 @@ function HeroGeometric({
                             </Button>
                             <Button size="lg">
                                 <Link href="/home" className="flex items-center gap-4">
-                                    Sign up here <MoveRight className="w-4 h-4" />
+                                    About Center <MoveRight className="w-4 h-4" />
                                 </Link>
                             </Button>
                         </div>

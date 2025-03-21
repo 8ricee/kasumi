@@ -41,20 +41,22 @@ export function NavBar({ items, className }: NavBarProps) {
     >
       <div className="flex p-4 md:px-10 lg:p-0 lg:px-4 xl:px-44 justify-between items-center lg:bg-background/5 lg:backdrop-blur-lg backdrop-blur-none bg-none">
         <div className="flex items-center gap-2 ">
-          <Image
-            src={"/favicon/dark.svg"}
-            alt="Logo"
-            width={isMobile ? 25 : 50}
-            height={isMobile ? 25 : 50}
-            className="hidden sm:inline"
-          />
-          <Image
-            className="hidden lg:inline"
-            src={"/favicon/logo.svg"}
-            alt="Logo"
-            width={isMobile ? 25 : 200}
-            height={isMobile ? 25 : 50}
-          />
+          <Link href="/">
+            <Image
+              src={"/favicon/dark.svg"}
+              alt="Logo"
+              width={isMobile ? 25 : 50}
+              height={isMobile ? 25 : 50}
+              className="hidden sm:inline"
+            />
+            <Image
+              className="hidden lg:inline"
+              src={"/favicon/logo.svg"}
+              alt="Logo"
+              width={isMobile ? 25 : 200}
+              height={isMobile ? 25 : 50}
+            />
+          </Link>
         </div>
 
         <div className="sm:absolute sm:left-1/2 sm:-translate-x-1/2 flex justify-center items-center gap-5 bg-background/5 border border-border backdrop-blur-lg p-1 rounded-full shadow-lg">
