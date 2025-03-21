@@ -35,7 +35,8 @@ export function NavBar({ items, className }: NavBarProps) {
   return (
     <div
       className={cn(
-        "fixed w-full bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-50 mb-6 ",
+        "sticky w-full bottom-0 sm:top-0 z-50 mb-6 border-border transition-all border-b",
+        // "sticky top-0 z-40 flex w-full justify-center border-border bg-background/60 backdrop-blur-xl transition-all border-b"
         className,
       )}
     >

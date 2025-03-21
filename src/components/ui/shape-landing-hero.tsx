@@ -188,8 +188,8 @@ function HeroGeometric({
                                     <Image src={icon} alt="Kasumi Logo" width={24} height={24} className="rounded-full" />
                                 </div>
                                 <DialogHeader>
-                                    <DialogTitle className="sm:text-center">Never miss an update</DialogTitle>
-                                    <DialogDescription className="sm:text-center">
+                                    <DialogTitle className="sm:text-center cursor-pointer">Never miss an update</DialogTitle>
+                                    <DialogDescription className="sm:text-center cursor-pointer">
                                         Subscribe to receive news and special offers.
                                     </DialogDescription>
                                 </DialogHeader>
@@ -215,9 +215,9 @@ function HeroGeometric({
                                 </Button>
                             </form>
 
-                            <p className="text-center text-xs text-muted-foreground">
+                            <p className="text-center text-xs text-muted-foreground cursor-pointer">
                                 By subscribing you agree to our{" "}
-                                <a className="underline hover:no-underline" href="#">
+                                <a className="underline hover:no-underline cursor-pointer" href="#">
                                     Privacy Policy
                                 </a>
                                 .
@@ -232,14 +232,14 @@ function HeroGeometric({
                         animate="visible"
                     >
                         <div className="flex gap-4 py-5 lg:py-10 items-center justify-center flex-col">
-                            <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-center font-regular">
-                                <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-slate-200 to-rose-500 dark:from-indigo-300 dark:via-white/90 dark:to-rose-300">{title}</span>
+                            <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-center">
+                                <span className="px-1 bg-clip-text cursor-pointer text-transparent bg-gradient-to-r from-indigo-500 via-slate-200 to-rose-500 dark:from-indigo-300 dark:via-white/90 dark:to-rose-300">{title}</span>
                                 <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
                                     &nbsp;
                                     {titles.map((title, index) => (
                                         <motion.span
                                             key={index}
-                                            className="absolute font-semibold bg-clip-text text-transparent bg-gradient-to-b from-slate-200 to-slate-400 dark:from-white dark:to-white/80"
+                                            className="absolute cursor-pointer font-semibold bg-clip-text text-transparent bg-gradient-to-b from-slate-200 to-slate-400 dark:from-white dark:to-white/80"
                                             initial={{ opacity: 0, y: "-100" }}
                                             transition={{ type: "spring", stiffness: 50 }}
                                             animate={
@@ -260,12 +260,12 @@ function HeroGeometric({
                                 </span>
                             </h1>
 
-                            <p className="text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-2xl text-center">
+                            <p className="text-lg cursor-pointer md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-2xl text-center">
                                 {description}
                             </p>
                         </div>
                         <div className="flex flex-row gap-6 pb-5 items-center justify-center">
-                            <Button size="icon" variant="outline" className="rounded-full">
+                            <Button size="icon" variant="neon" className="rounded-full">
                                 <Link href="https://www.facebook.com/KasumiCenter/" target="_blank" rel="noopener noreferrer" title="Facebook">
                                     <Facebook className="w-4 h-4" />
                                 </Link>
@@ -275,7 +275,7 @@ function HeroGeometric({
                                     <Instagram className="w-4 h-4" />
                                 </Link>
                             </Button>
-                            <Button size="icon" variant="outline" className="rounded-full">
+                            <Button size="icon" variant="neon" className="rounded-full">
                                 <Link href="#" target="_blank" rel="noopener noreferrer">
                                     <Github className="w-4 h-4" />
                                 </Link>
@@ -285,7 +285,7 @@ function HeroGeometric({
                                     <Inbox className="w-4 h-4" />
                                 </Link>
                             </Button>
-                            <Button size="icon" variant="outline" className="rounded-full">
+                            <Button size="icon" variant="neon" className="rounded-full">
                                 <Link href="#" target="_blank" rel="noopener noreferrer">
                                     <Mail className="w-4 h-4" />
                                 </Link>
@@ -297,7 +297,7 @@ function HeroGeometric({
                                     Jump on a call <PhoneCall className="w-4 h-4" />
                                 </a>
                             </Button>
-                            <Button size="lg">
+                            <Button size="lg" variant="color">
                                 <Link href="/home" className="flex items-center gap-4">
                                     About Center <MoveRight className="w-4 h-4" />
                                 </Link>

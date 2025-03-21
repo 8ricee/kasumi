@@ -3,6 +3,7 @@ import { NavBarMain } from "@/components/navbar";
 import { SparklesPreview } from "@/components/preview";
 import { TimelineMain } from "@/components/timeline";
 import { BackgroundBeams } from "@/components/ui/background-beams";
+import { Footer } from "@/components/ui/footer-section";
 
 export default function Home() {
     return (
@@ -14,6 +15,7 @@ export default function Home() {
             </div>
             <TimelineMain />
             <BackgroundBeams />
+            <Footer />
         </>
     );
 }
