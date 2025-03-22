@@ -43,7 +43,7 @@ function Header() {
                                             <NavigationMenuTrigger className="font-medium text-sm">
                                                 {item.title}
                                             </NavigationMenuTrigger>
-                                            <NavigationMenuContent className="!w-[450px] p-4">
+                                            <NavigationMenuContent className="p-4 max-w-[90vw] w-[450px] overflow-hidden">
                                                 <div className="flex flex-col lg:grid grid-cols-2 gap-4">
                                                     <div className="flex flex-col h-full justify-between">
                                                         <div className="flex flex-col">
