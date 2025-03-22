@@ -21,7 +21,7 @@ function Header() {
 
     return (
         <header className="w-full z-40 fixed top-0 left-0 bg-background border-b border-border">
-            <div className="container px-4 relative mx-auto min-h-15 flex gap-4 flex-row lg:grid lg:grid-cols-2 items-center">
+            <div className="container lg:px-10 relative mx-auto min-h-15 flex gap-4 flex-row lg:grid lg:grid-cols-2 items-center">
                 <div className="flex lg:justify-start gap-2 items-center">
                     <Logo className="min-w-10 min-h-10" />
                     <span className="font-semibold">
@@ -43,7 +43,7 @@ function Header() {
                                             <NavigationMenuTrigger className="font-medium text-sm">
                                                 {item.title}
                                             </NavigationMenuTrigger>
-                                            <NavigationMenuContent className="!w-[450px] p-4 ">
+                                            <NavigationMenuContent className="!w-[450px] p-4">
                                                 <div className="flex flex-col lg:grid grid-cols-2 gap-4">
                                                     <div className="flex flex-col h-full justify-between">
                                                         <div className="flex flex-col">
@@ -76,10 +76,9 @@ function Header() {
                             ))}
                         </NavigationMenuList>
                     </NavigationMenu>
-                    <div className="justify-end items-end">
-                        <div className="border-r hidden md:inline"></div>
-                        <ThemeToggle variant="icon" />
-                    </div>
+
+                    <div className="border-r hidden md:inline"></div>
+                    <ThemeToggle variant="icon" />
                 </div>
 
                 <div className="flex w-12 shrink lg:hidden items-end justify-end">
