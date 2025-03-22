@@ -1,18 +1,54 @@
 "use client";
 
 import * as React from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Send } from "lucide-react";
+import {
+  FooterLegalLinks,
+  FooterQuickLinks,
+  FooterSocialLinks,
+  FooterContact,
+} from "@/data/shell";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Send } from "lucide-react";
-import { FooterLegalLinks, FooterQuickLinks, FooterSocialLinks, FooterContact } from "@/data/shell";
 
 function Footer() {
+  const [email, setEmail] = useState("");
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSuccess(false);
+    setError("");
+
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || "Something went wrong");
+      }
+
+      setSuccess(true);
+      setEmail("");
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (err: any) {
+      setError(err.message || "Failed to subscribe");
+    }
+  };
+
   return (
     <footer className="relative border-t bg-background text-foreground transition-colors duration-300">
       <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
@@ -22,11 +58,15 @@ function Footer() {
             <p className="mb-6 text-muted-foreground">
               Join our newsletter for the latest updates and exclusive offers.
             </p>
-            <form className="relative items-center">
+
+            <form className="relative items-center" onSubmit={handleSubmit}>
               <Input
                 type="email"
                 placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="pr-12 backdrop-blur-sm"
+                required
               />
               <Button
                 type="submit"
@@ -37,6 +77,14 @@ function Footer() {
                 <span className="sr-only">Subscribe</span>
               </Button>
             </form>
+
+            {success && (
+              <p className="text-green-600 text-sm mt-2">🎉 Subscribed successfully!</p>
+            )}
+            {error && (
+              <p className="text-red-500 text-sm mt-2">⚠️ {error}</p>
+            )}
+
             <div className="absolute -right-4 top-0 h-24 w-24 rounded-full bg-primary/10 blur-2xl" />
           </div>
 
