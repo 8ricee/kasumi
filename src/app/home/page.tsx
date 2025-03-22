@@ -1,21 +1,23 @@
-import { GlowingEffectDemo } from "@/components/demo";
-import { NavBarMain } from "@/components/navbar";
-import { SparklesPreview } from "@/components/preview";
-import { TimelineMain } from "@/components/timeline";
-import { BackgroundBeams } from "@/components/ui/background-beams";
-import { Footer } from "@/components/ui/footer-section";
+import { Footer } from "@/components/layout/footer"
+import { Header } from "@/components/layout/header"
+import { Connect } from "@/components/layout/home/connect"
+import { Preview } from "@/components/layout/home/preview"
+import { Frame } from "@/components/layout/page/frames"
 
-export default function Home() {
+function Home() {
     return (
-        <>
-            <NavBarMain />
-            <div className="grid sm:pt-20 xl:grid-cols-2 xl:grid-rows-1 grid-cols-1 items-center justify-between xl:px-40 xl:pt-40">
-                <SparklesPreview />
-                <GlowingEffectDemo />
+        <div className="block">
+            <Header />
+            <div className="py-20 grid grid-cols-1 gap-20">
+                <Connect />
+                <Preview />
+                <div className="pb-4">
+                    <Frame />
+                </div>
             </div>
-            <TimelineMain />
-            <BackgroundBeams />
             <Footer />
-        </>
-    );
+        </div>
+    )
 }
+
+export default Home

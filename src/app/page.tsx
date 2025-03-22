@@ -1,9 +1,19 @@
-import { HeroGeometric } from "@/components/ui/shape-landing-hero"
+import { Background } from '@/components/layout/root/background'
+import { ButtonRoot } from '@/components/layout/root/button-root'
+import { DialogSubscribe } from '@/components/layout/root/dialog-subscribe'
+import { Hero } from '@/components/layout/root/hero'
+import { IconSocial } from '@/components/layout/root/icon-social'
+import React from 'react'
 
-export default function Home() {
-  return (
-    <HeroGeometric badge="Learning Now"
-            title = "Kasumi Language"
-            description = "With modern teaching methods and a focus on practical communication skills" />
-  );
+function Root() {
+    return (
+        <Background>
+            <DialogSubscribe />
+            <Hero />
+            <IconSocial />
+            <ButtonRoot />
+        </Background>
+    )
 }
+
+export default Root

@@ -8,7 +8,7 @@ import {
   MorphingDialogContent,
 } from "@/components/ui/morphing-dialog";
 
-interface ZoomableImageProps {
+interface ZoomAbleImageProps {
   src: string;
   alt: string;
   width: number;
@@ -16,7 +16,7 @@ interface ZoomableImageProps {
   className?: string;
 }
 
-export function ZoomableImage({ src, alt, width, height, className }: ZoomableImageProps) {
+export function ZoomAbleImage({ src, alt, width, height, className }: ZoomAbleImageProps) {
   return (
     <MorphingDialog>
       <MorphingDialogTrigger className={className}>
