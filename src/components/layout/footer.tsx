@@ -29,7 +29,7 @@ function Footer() {
     setError("");
 
     try {
-      const res = await fetch("/api/subscribe", {
+      const res = await fetch("/api/routes", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
