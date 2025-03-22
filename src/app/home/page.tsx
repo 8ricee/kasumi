@@ -2,7 +2,7 @@ import { Footer } from "@/components/layout/footer"
 import { Header } from "@/components/layout/header"
 import { Connect } from "@/components/layout/home/connect"
 import { Preview } from "@/components/layout/home/preview"
-import { Frame } from "@/components/layout/page/frames"
+import { Frame } from "@/components/layout/home/frames"
 
 function Home() {
     return (
