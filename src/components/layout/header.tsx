@@ -43,7 +43,7 @@ function Header() {
                                             <NavigationMenuTrigger className="font-medium text-sm">
                                                 {item.title}
                                             </NavigationMenuTrigger>
-                                            <NavigationMenuContent className="p-4 max-w-[90vw] w-[450px] overflow-hidden">
+                                            <NavigationMenuContent className="!w-[450px] p-4">
                                                 <div className="flex flex-col lg:grid grid-cols-2 gap-4">
                                                     <div className="flex flex-col h-full justify-between">
                                                         <div className="flex flex-col">
@@ -76,10 +76,10 @@ function Header() {
                             ))}
                         </NavigationMenuList>
                     </NavigationMenu>
-
-                    <div className="border-r hidden md:inline"></div>
-                    <ThemeToggle variant="icon" />
                 </div>
+
+                <div className="border-r hidden md:inline"></div>
+                <ThemeToggle variant="icon" />
 
                 <div className="flex w-12 shrink lg:hidden items-end justify-end">
                     <Button variant="ghost" onClick={() => setOpen(!isOpen)}>
